@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Marketing Signal — 2026-07-20</title>
+  <meta name="description" content="AI Marketing Signal: 中国 5 条 + 国际 5 条，附原始出处跳转。">
+  <style>
+    :root{
+      --canvas:#f3eadb;--paper:#fff8e8;--ink:#111a38;--muted:#5d6272;
+      --blue:#1f66e5;--red:#ff4d3f;--yellow:#edbf3f;--line:#111a38;
+      --pale-line:rgba(17,26,56,.09);--shadow:#111a38;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{overflow-x:hidden}
+    body{
+      margin:0;color:var(--ink);
+      font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      background:
+        linear-gradient(var(--pale-line) 1px,transparent 1px),
+        linear-gradient(90deg,var(--pale-line) 1px,transparent 1px),
+        var(--canvas);
+      background-size:80px 80px;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;opacity:.24;
+      background:radial-gradient(circle at 40% 8%,rgba(255,77,63,.09),transparent 24%),radial-gradient(circle at 84% 40%,rgba(31,102,229,.08),transparent 28%);
+    }
+    a{color:inherit;text-decoration:none}
+    main{width:min(100%,1100px);margin:auto;padding:0 40px 58px;position:relative}
+    .topbar{min-height:70px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:4px solid var(--line);background:rgba(243,234,219,.82);backdrop-filter:blur(14px)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;letter-spacing:-.02em;color:var(--ink)}
+    .brand::before{content:"AI×M";display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--red);color:#fff;font-size:20px;font-weight:900;letter-spacing:-.05em;box-shadow:14px 10px 0 var(--blue)}
+    .top-meta{font-size:13px;font-weight:900;letter-spacing:.18em;color:var(--red)}
+    .links{justify-self:end;display:flex;gap:22px;font-size:13px;font-weight:900;color:var(--ink)}
+    .links a:hover{color:var(--red)}
+    .hero{display:block;padding:38px 0 26px}
+    .cover,.side,.summary,.card,.sources{background:transparent}
+    .cover{min-height:560px;padding:0;display:flex;flex-direction:column;justify-content:flex-start;position:relative}
+    .cover::after{content:"";display:block;height:4px;background:var(--line);margin-top:42px}
+    .masthead{display:grid;grid-template-columns:100px minmax(0,1fr);gap:32px;align-items:center;margin-bottom:78px}
+    .mark{display:grid;place-items:center;width:86px;height:86px;border-radius:50%;background:var(--red);color:#fff;font-size:26px;font-weight:900;letter-spacing:-.06em;box-shadow:18px 14px 0 var(--blue)}
+    .mast-copy{min-width:0}
+    .kicker{margin:0 0 18px;color:var(--red);font-size:18px;font-weight:900;letter-spacing:.24em;text-transform:uppercase}
+    .titleline{font-size:42px;line-height:1.08;font-weight:900;letter-spacing:-.055em;color:var(--ink)}
+    .titleline span{display:block;color:var(--blue);font-weight:800}
+    h1{font-size:clamp(72px,13vw,148px);line-height:.82;letter-spacing:-.08em;margin:0;font-weight:900;color:var(--ink)}
+    h1 em{display:block;color:var(--red);font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:500;letter-spacing:-.07em}
+    .subtitle{max-width:980px;margin:38px 0 0;font-family:"Songti SC",STSong,serif;font-style:italic;font-size:34px;line-height:1.45;color:var(--ink)}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;position:relative;z-index:1}
+    .chip{border:2px solid var(--line);background:var(--paper);padding:8px 11px;color:var(--ink);font-size:12px;font-weight:900;letter-spacing:.08em}
+    .side{background:var(--yellow);border:4px solid var(--line);box-shadow:16px 16px 0 var(--shadow);padding:28px 34px;margin:22px 0 38px}
+    .date{font-size:18px;line-height:1;font-weight:900;letter-spacing:.18em;color:var(--red);text-transform:uppercase}
+    .side h2{font-size:42px;line-height:1.1;letter-spacing:-.04em;margin:18px 0 14px;color:var(--ink)}
+    .side p{font-family:"Songti SC",STSong,serif;line-height:1.68;margin:0;color:var(--ink);font-size:24px}
+    .stamp{margin-top:18px;border-top:2px solid rgba(17,26,56,.35);padding-top:12px;font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--ink)}
+    .summary{border:2px solid var(--yellow);background:rgba(255,248,232,.75);margin:12px 0 38px;padding:22px 26px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px}
+    h2{font-size:44px;line-height:1;letter-spacing:-.055em;margin:0;color:var(--ink)}
+    .summary p{margin:0 0 12px;font-family:"Songti SC",STSong,serif;font-size:20px;line-height:1.7;color:var(--ink)}
+    .note{margin-top:14px;border-left:5px solid var(--red);background:#fff1bd;padding:13px 15px;font-size:15px;line-height:1.65;color:var(--ink)}
+    .section{padding:30px 0 14px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;border-bottom:4px solid var(--line);padding-bottom:12px;margin-bottom:18px}
+    .section-head p{margin:0;color:var(--red);font-size:13px;font-weight:900;letter-spacing:.18em}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .card{border:3px solid var(--line);background:var(--paper);padding:20px;display:flex;flex-direction:column;gap:13px;position:relative;box-shadow:8px 8px 0 var(--shadow)}
+    .card::before{content:"";position:absolute;inset:0 0 auto;height:7px;background:var(--red);opacity:1}
+    .card-top{display:flex;justify-content:space-between;gap:12px;padding-top:8px;color:var(--red);font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .card h3{font-size:23px;line-height:1.22;letter-spacing:-.02em;margin:0}
+    .time{font-size:13px;color:var(--muted);line-height:1.45;font-weight:700}
+    .source-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px;border-top:2px solid rgba(17,26,56,.16)}
+    .source-btn{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--line);background:var(--yellow);color:var(--ink);padding:8px 12px;font-size:12px;font-weight:900;letter-spacing:.08em;box-shadow:4px 4px 0 var(--shadow)}
+    .source-btn:hover{background:var(--red);color:#fff}
+    .block{border-top:2px solid rgba(17,26,56,.13);padding-top:12px}
+    .block b{display:block;margin-bottom:6px;color:var(--red);font-size:12px;letter-spacing:.14em}
+    .block p{margin:0;font-family:"Songti SC",STSong,serif;font-size:16px;line-height:1.72}
+    .block .en{font-family:Arial,sans-serif;color:#5d604f;font-size:14px;margin-top:7px}
+    .sources{border:2px solid var(--yellow);background:rgba(255,248,232,.75);padding:26px;margin-top:8px}
+    .sources ol{columns:2;gap:34px;padding-left:22px;margin:18px 0 0}
+    .sources li{break-inside:avoid;margin:0 0 11px;font-size:13px;line-height:1.5}
+    .sources a{color:var(--blue);border-bottom:1px solid rgba(31,102,229,.35)}
+    footer{border-top:4px solid var(--line);padding-top:24px;margin-top:32px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px;font-weight:800}
+    @media(max-width:900px){main{padding:0 24px 44px}.topbar{grid-template-columns:1fr;gap:12px;padding:18px 0}.links{justify-self:start}.top-meta{display:none}.masthead{grid-template-columns:82px 1fr;gap:22px;margin-bottom:62px}.mark{width:74px;height:74px;font-size:22px}.hero,.summary,.grid{grid-template-columns:1fr}.cover{min-height:0}.subtitle{font-size:28px}.side{padding:24px}.sources ol{columns:1}}
+    @media(max-width:540px){main{width:100%;padding:0 20px 42px}.brand::before{width:52px;height:52px;font-size:18px;box-shadow:12px 10px 0 var(--blue)}.topbar{border-bottom-width:3px}.masthead{grid-template-columns:72px minmax(0,1fr);gap:18px;margin-bottom:56px}.mark{width:66px;height:66px;font-size:20px;box-shadow:14px 12px 0 var(--blue)}.kicker{font-size:13px;letter-spacing:.18em;overflow-wrap:anywhere}.titleline{font-size:34px}h1{font-size:16vw;letter-spacing:-.07em}.subtitle{font-size:22px;overflow-wrap:anywhere;word-break:break-all}.side{width:calc(100% - 10px);box-shadow:10px 10px 0 var(--shadow)}.side h2{font-size:34px}.side p,.summary p,.block p{overflow-wrap:anywhere;word-break:break-all}.side p{font-size:19px}.summary{display:block}.summary p{font-size:17px}.section-head{display:block}.section-head p{margin-top:8px}.card{width:calc(100% - 6px);padding:17px;box-shadow:6px 6px 0 var(--shadow)}.source-btn{width:100%}footer{display:block;line-height:1.8}}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="topbar">
+    <a class="brand" href="#top">AI Marketing Signal</a>
+    <div class="top-meta">2026.07.20 · DAILY BRIEF</div>
+    <div class="links"><a href="#china">中国</a><a href="#global">国际</a><a href="#sources">来源</a></div>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="cover">
+      <div>
+        <div class="masthead">
+          <div class="mark">AI×M</div>
+          <div class="mast-copy">
+            <p class="kicker">AI SIGNAL DESK</p>
+            <div class="titleline">AI Marketing Signal<span>/ AI 情报</span></div>
+          </div>
+        </div>
+        <p class="kicker">CN · GLOBAL / AI WORKFLOW</p>
+        <h1>Less hype.<em>More useful<br>moves.</em></h1>
+        <p class="subtitle">一份中英双语 AI 日报：只保留会改变内容、渠道、工具或工作方式的信号。</p>
+      </div>
+      <div class="chips">
+        <span class="chip">中国 5 条</span>
+        <span class="chip">国际 5 条</span>
+        <span class="chip">原始出处</span>
+        <span class="chip">事实摘要</span>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="date">Today's lens / 今日视角</div>
+      <h2>AI 从热闹走向日常入口。</h2>
+      <p>覆盖窗口：2026-07-19 15:54 至 2026-07-20 15:54。严格 24 小时内可核验的 AI 商业新闻不足 10 条，本期用近 7 天内仍有今日参考价值的来源补齐。</p>
+      <div class="stamp">SOURCE FIRST · BILINGUAL · FAST READ</div>
+    </aside>
+  </section>
+
+  <section class="summary">
+    <h2>先看这个</h2>
+    <div>
+      <p>中国这边，WAIC 把 AI 继续推向机器人、智能体、设备和治理规则；国际这边，Apple、Spotify、Superhuman 这些入口型产品都在把 AI 塞进日常工作流。</p>
+      <p>Translation: AI is moving from spectacle to interface. The useful question is no longer “is AI hot?” but “where is it becoming the default layer?”</p>
+      <div class="note">阅读方式：每条只保留事实摘要；需要深挖时，点卡片底部的来源票据。</div>
+    </div>
+  </section>
+
+  <section class="section" id="china">
+    <header class="section-head"><h2>中国 5 条</h2><p>CHINA NOTES</p></header>
+    <div class="grid">
+      <article class="card">
+        <div class="card-top"><span>China 01</span><span>WAIC</span></div>
+        <h3>WAIC 2026 今日闭幕：AI 应用、智能体和具身场景成为主线</h3>
+        <div class="time">2026-07-17 发布；大会持续至 2026-07-20</div>
+        <div class="block"><b>发生了什么</b><p>上海 WAIC 参展企业超过 1,100 家，展品超过 3,000 件，官方信息强调机器人、智能体、智能眼镜、手机等可落地场景。</p><p class="en">WAIC is less about model bragging now, more about where AI shows up in actual products.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://english.shanghai.gov.cn/en-ParticipateExplore/20260717/36193160d9d94efb9c0aa5fa4fbed5fd.html" target="_blank" rel="noopener">原始出处 ↗</a><a class="source-btn" href="https://english.shanghai.gov.cn/en-ParticipateExplore/20260716/e9f440efa31f4b81987f9c65ff4760df.html" target="_blank" rel="noopener">参会信息 ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span>China 02</span><span>Evaluation</span></div>
+        <h3>WAICA 7 月 20 日议程强调 AI 评测、智能体责任与多轮搜索</h3>
+        <div class="time">2026-07-20 sessions, Beijing time</div>
+        <div class="block"><b>发生了什么</b><p>WAIC Academic 议程包含 Deep Research 质量评测、多轮搜索鲁棒性、Agentic AI 责任框架、跨语言水印检测等技术报告。</p><p class="en">The serious AI conversation is shifting to evaluation, reliability, liability, and traceability.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://waica2026.worldaic.com.cn/program/program-glance/" target="_blank" rel="noopener">原始出处 ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span>China 03</span><span>Policy</span></div>
+        <h3>中国拟人化 AI 互动新规实施后引发市场调整</h3>
+        <div class="time">规则 2026-07-15 生效；报道 2026-07-19</div>
+        <div class="block"><b>发生了什么</b><p>《人工智能拟人化互动服务管理暂行办法》开始施行，要求拟人化 AI 不能诱导情感依赖或沉迷，并强化身份提醒、退出机制和未成年人保护。</p><p class="en">Companion-style AI is becoming a regulated product category, not just a cute feature.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://www.digitalchina.gov.cn/2026/szzg/xyzx/202607/t20260716_5347193.htm" target="_blank" rel="noopener">原始出处 ↗</a><a class="source-btn" href="https://www.abc.net.au/news/2026-07-19/china-cracks-down-on-artificial-intelligence-companions/106925352" target="_blank" rel="noopener">报道 ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span>China 04</span><span>SME</span></div>
+        <h3>APEC Digital Week 在成都进行，AI 赋能中小企业成为区域议题</h3>
+        <div class="time">2026-07-16 to 2026-07-29</div>
+        <div class="block"><b>发生了什么</b><p>APEC Digital Week 在成都举行，议程覆盖 AI 采用、中小企业、数据基础设施、在线安全和数字韧性。</p><p class="en">AI adoption is being framed as a competitiveness issue for smaller businesses across the region.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://www.apec.org/engage-with-us/events-calendar/2026/digital-weeks--including-digital-and-ai-ministerial-meeting-dmm-and-other-high-level-events" target="_blank" rel="noopener">原始出处 ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span>China 05</span><span>UGC</span></div>
+        <h3>TikTok Content Suite 用 AI 搜索品牌相关 UGC，强化素材资产化</h3>
+        <div class="time">Updated 2026-06; crawled 2026-07-17</div>
+        <div class="block"><b>发生了什么</b><p>TikTok Content Suite 用标题、话题、旁白识别、视频文字识别和表现数据，帮助品牌找到可授权、可复用的自然内容。</p><p class="en">UGC discovery is turning into an AI-assisted asset pipeline.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://ads.tiktok.com/help/article/about-tiktok-content-suite?lang=zh" target="_blank" rel="noopener">原始出处 ↗</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="global">
+    <header class="section-head"><h2>国际 5 条</h2><p>GLOBAL NOTES</p></header>
+    <div class="grid">
+      <article class="card">
+        <div class="card-top"><span>Global 01</span><span>Assistant</span></div>
+        <h3>Apple Siri AI 公测扩大，个人助理入口竞争升温</h3>
+        <div class="time">TechCrunch 2026-07-14; Apple 2026-06-08</div>
+        <div class="block"><b>发生了什么</b><p>Apple 将 Siri AI 随 iOS 27 公测开放给更广泛用户，新版 Siri 能理解屏幕内容、个人上下文，并跨应用执行动作。</p><p class="en">The assistant layer is getting closer to the operating system and everyday phone behavior.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://techcrunch.com/2026/07/14/apple-opens-its-new-siri-ai-to-everyone-with-the-ios-27-public-beta/" target="_blank" rel="noopener">报道 ↗</a><a class="source-btn" href="https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/" target="_blank" rel="noopener">原始出处 ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span>Global 02</span><span>Audio</span></div>
+        <h3>Spotify 推出对话式音乐助手，内容发现进入问答式</h3>
+        <div class="time">2026-07-14</div>
+        <div class="block"><b>发生了什么</b><p>Spotify Premium 用户可用语音或文字与 Spotify 对话，选择播放内容、理解音乐、回顾收听历史并探索播客和有声书。</p><p class="en">Discovery is becoming conversational, especially for audio and long-form content.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://newsroom.spotify.com/2026-07-14/talk-to-spotify-announcement-beta/" target="_blank" rel="noopener">原始出处 ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span>Global 03</span><span>Email</span></div>
+        <h3>Superhuman Auto Drafts 2.0 把邮件回复推向自动草拟</h3>
+        <div class="time">2026-07-14</div>
+        <div class="block"><b>发生了什么</b><p>Superhuman Auto Drafts 2.0 可基于收件箱、日历和网络上下文自动生成回复草稿，并适配不同联系人的语气。</p><p class="en">The inbox is moving toward AI-first drafting with human review.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://blog.superhuman.com/auto-drafts-2-0/" target="_blank" rel="noopener">原始出处 ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span>Global 04</span><span>Copyright</span></div>
+        <h3>Google 再遭出版商 AI 训练诉讼，内容授权风险升高</h3>
+        <div class="time">2026-07-14</div>
+        <div class="block"><b>发生了什么</b><p>出版商和作者群体对 Google 提起集体诉讼，指控其使用受版权保护作品训练 Gemini，并涉及版权信息处理争议。</p><p class="en">Rights holders are still pushing back on how AI companies use copyrighted material.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://techcrunch.com/2026/07/14/google-faces-another-ai-training-lawsuit-from-major-publishers/" target="_blank" rel="noopener">原始出处 ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><span>Global 05</span><span>Trust</span></div>
+        <h3>DeepMind CEO 呼吁前沿模型标准机构，AI 风险披露或常态化</h3>
+        <div class="time">2026-07-14</div>
+        <div class="block"><b>发生了什么</b><p>Google DeepMind CEO Demis Hassabis 呼吁建立独立标准机构，在前沿模型发布前进行测试和最佳实践评估。</p><p class="en">Trust, testing, and standards are becoming part of the frontier AI conversation.</p></div>
+        <div class="source-row"><a class="source-btn" href="https://techcrunch.com/2026/07/14/deepmind-ceo-calls-for-an-independent-standards-body-to-regulate-frontier-ai/" target="_blank" rel="noopener">原始出处 ↗</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sources" id="sources">
+    <h2>原始出处</h2>
+    <ol>
+      <li><a href="https://english.shanghai.gov.cn/en-ParticipateExplore/20260717/36193160d9d94efb9c0aa5fa4fbed5fd.html">Shanghai Government: WAIC 2026 must-see exhibits</a></li>
+      <li><a href="https://english.shanghai.gov.cn/en-ParticipateExplore/20260716/e9f440efa31f4b81987f9c65ff4760df.html">Shanghai Government: WAIC visitor information</a></li>
+      <li><a href="https://waica2026.worldaic.com.cn/program/program-glance/">WAIC Academic 2026 program</a></li>
+      <li><a href="https://www.digitalchina.gov.cn/2026/szzg/xyzx/202607/t20260716_5347193.htm">数字中国：人工智能拟人化互动服务管理暂行办法</a></li>
+      <li><a href="https://www.abc.net.au/news/2026-07-19/china-cracks-down-on-artificial-intelligence-companions/106925352">ABC News: China cracks down on AI companions</a></li>
+      <li><a href="https://www.apec.org/engage-with-us/events-calendar/2026/digital-weeks--including-digital-and-ai-ministerial-meeting-dmm-and-other-high-level-events">APEC Digital Week 2026</a></li>
+      <li><a href="https://ads.tiktok.com/help/article/about-tiktok-content-suite?lang=zh">TikTok for Business: Content Suite</a></li>
+      <li><a href="https://techcrunch.com/2026/07/14/apple-opens-its-new-siri-ai-to-everyone-with-the-ios-27-public-beta/">TechCrunch: Apple opens Siri AI public beta</a></li>
+      <li><a href="https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/">Apple Newsroom: Apple Intelligence and Siri AI</a></li>
+      <li><a href="https://newsroom.spotify.com/2026-07-14/talk-to-spotify-announcement-beta/">Spotify Newsroom: Talk to Spotify beta</a></li>
+      <li><a href="https://blog.superhuman.com/auto-drafts-2-0/">Superhuman: Auto Drafts 2.0</a></li>
+      <li><a href="https://techcrunch.com/2026/07/14/google-faces-another-ai-training-lawsuit-from-major-publishers/">TechCrunch: Google AI training lawsuit</a></li>
+      <li><a href="https://techcrunch.com/2026/07/14/deepmind-ceo-calls-for-an-independent-standards-body-to-regulate-frontier-ai/">TechCrunch: DeepMind standards body proposal</a></li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>AI Marketing Signal · 每天 8:30 更新</span>
+    <a href="https://github.com/kebingyu977-rgb/bingbing">GitHub</a>
+  </footer>
+</main>
+</body>
+</html>
