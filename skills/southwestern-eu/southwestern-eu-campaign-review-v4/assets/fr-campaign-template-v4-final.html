@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>法国 I7/S7 Fold 活动评估报告 | Tineco</title>
+<style>
+:root {
+  --ink: #1a1a2e;
+  --body: #3a3a5a;
+  --muted: #6b7280;
+  --ok: #10b981;
+  --warn: #f59e0b;
+  --bad: #ef4444;
+  --accent: #3b82f6;
+  --accent2: #8b5cf6;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e5e7eb;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.section { margin-bottom: 32px; }
+h1 { font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+h2 { font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); display: inline-block; }
+h3 { color:#1a1a2e;  font-size: 16px; font-weight: 600; color: var(--body); margin-bottom: 8px; }
+.subtitle { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+.card { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.kpi-card { background: var(--card); border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+.kpi-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.kpi-value { font-size: 28px; font-weight: 700; color: var(--ink); }
+.kpi-unit { font-size: 12px; color: var(--muted); }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.badge-ok { background: #ecfdf5; color: var(--ok); }
+.badge-warn { background: #fffbeb; color: var(--warn); }
+.badge-bad { background: #fef2f2; color: var(--bad); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th { background: #f1f5f9; color: var(--body); font-weight: 600; padding: 10px 12px; text-align: left; border-bottom: 2px solid var(--border); }
+td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+tr:hover { background: #f8fafc; }
+.alert-box { padding: 16px; border-radius: 8px; margin: 12px 0; border-left: 4px solid; }
+.alert-bad { background: #fef2f2; border-color: var(--bad); }
+.alert-warn { background: #fffbeb; border-color: var(--warn); }
+.alert-ok { background: #ecfdf5; border-color: var(--ok); }
+.video-card { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+.video-title { font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.video-title .platform { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.platform-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #222; }
+.platform-fb { background: #1877f2; color: #222; }
+.dimension-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 12px 0; }
+.dimension { padding: 12px; border-radius: 8px; background: #f8fafc; border: 1px solid var(--border); }
+.dimension-title { font-size: 13px; font-weight: 600; color: var(--body); margin-bottom: 4px; }
+.dimension-score { font-size: 20px; font-weight: 700; }
+.score-bar { height: 6px; background: #e5e7eb; border-radius: 3px; margin-top: 6px; overflow: hidden; }
+.score-fill { height: 100%; border-radius: 3px; }
+.asr-box { background: #f1f5f9; border-radius: 8px; padding: 12px; margin: 8px 0; font-size: 13px; color: var(--body); border-left: 3px solid var(--accent); }
+.cta-none { color: var(--bad); font-weight: 600; }
+.cta-soft { color: var(--warn); font-weight: 600; }
+.cta-strong { color: var(--ok); font-weight: 600; }
+.summary-table { margin: 16px 0; }
+.diagnosis-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin: 2px; }
+.tag-critical { background: #fef2f2; color: var(--bad); }
+.tag-major { background: #fffbeb; color: var(--warn); }
+.tag-minor { background: #f0fdf4; color: var(--ok); }
+.action-item { padding: 12px; border-radius: 8px; margin: 8px 0; border-left: 4px solid; }
+.action-p0 { background: #fef2f2; border-color: var(--bad); }
+.action-p1 { background: #fffbeb; border-color: var(--warn); }
+.action-p2 { background: #f0fdf4; border-color: var(--ok); }
+
+.tiny{font-size:11.5px;color:var(--muted);line-height:1.6}
+.s-ok{color:var(--ok)} .s-warn{color:var(--warn)} .s-bad{color:var(--bad)}
+/* 总评分 */
+.verdict{display:flex;gap:26px;background:var(--card);border:1px solid var(--border);border-left:6px solid var(--bad);border-radius:12px;padding:22px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);flex-wrap:wrap}
+.verdict-score{flex:0 0 158px;text-align:center;padding:12px 0;background:#fef2f2;border-radius:10px}
+.vk{font-size:11px;letter-spacing:.18em;color:var(--bad);opacity:.85}
+.vn{font-size:64px;font-weight:800;line-height:1;color:var(--bad);letter-spacing:-3px;margin:4px 0}
+.vg{display:inline-block;padding:2px 14px;border-radius:20px;background:#fff;color:var(--bad);font-weight:800;font-size:16px}
+.vd{font-size:11px;color:var(--muted);margin-top:8px}
+.verdict-body{flex:1;min-width:330px}
+.vh{font-size:23px;font-weight:800;letter-spacing:.02em}
+.vh em{font-style:normal;color:var(--bad)}
+.vt{font-size:14px;color:var(--body);margin:8px 0 14px;line-height:1.85}
+.vt b{color:var(--bad)}
+.vbars{display:flex;flex-direction:column;gap:7px}
+.vb{display:flex;align-items:center;gap:8px;font-size:12.5px}
+.vb-n{flex:0 0 62px;font-weight:600;color:var(--body)}
+.vb-w{flex:0 0 56px;color:var(--muted);font-size:11px}
+.vb-t{flex:1;height:9px;background:#eef1f5;border-radius:5px;min-width:80px;overflow:hidden}
+.vb-f{height:100%;border-radius:5px}
+.f-ok{background:var(--ok)} .f-warn{background:var(--warn)} .f-bad{background:var(--bad)}
+.vb-v{flex:0 0 26px;text-align:right;font-weight:800}
+/* 标准表 */
+.grp{background:#eef2f6;font-weight:700;font-size:12.5px;color:var(--ink);letter-spacing:.04em}
+.grp span{font-weight:400;color:var(--muted);font-size:11px;margin-left:6px}
+td.big{font-size:19px;font-weight:800}
+/* 模块小总览 */
+.mini{display:grid;grid-template-columns:150px 1fr;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden}
+.mini.warn{border-left-color:var(--warn)} .mini.bad{border-left-color:var(--bad)} .mini.act{border-left-color:var(--accent2)}
+.mini-s{padding:18px 12px;text-align:center;background:#f8fafc;border-right:1px solid var(--border)}
+.mini-k{font-size:11px;color:var(--muted);letter-spacing:.1em;margin-bottom:4px}
+.mini-n{font-size:42px;font-weight:800;line-height:1;letter-spacing:-1px;margin-bottom:8px}
+.mini-x{font-size:11px;color:var(--muted);margin-top:10px;padding-top:9px;border-top:1px dashed var(--border);line-height:1.5}
+.mini-b{padding:14px 18px}
+.mini-r{display:flex;gap:12px;padding:7px 0;border-bottom:1px dashed #eef1f4;font-size:13px;color:var(--body)}
+.mini-r:last-child{border-bottom:none}
+.mini-t{flex:0 0 60px;font-size:11.5px;color:var(--muted);letter-spacing:.06em;padding-top:2px}
+.mini-r>div{flex:1}
+.mini-r ol{margin:0;padding-left:17px} .mini-r li{margin-bottom:3px}
+.mini-r li::marker{color:var(--bad);font-weight:700}
+h2 .h2score{font-size:13px;font-weight:700;margin-left:10px;padding:2px 10px;border-radius:20px;vertical-align:middle}
+/* 达人卡 */
+.crx{border:1px solid var(--border);border-left:4px solid var(--ok);border-radius:10px;margin:14px 0;overflow:hidden}
+.crx.bad{border-left-color:var(--bad)}
+.crx-h{display:flex;align-items:center;gap:20px;padding:14px 18px;background:#f8fafc;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.crx-id{flex:1;min-width:150px}
+.crx-id b{display:block;font-size:19px;font-weight:800;color:var(--ink)}
+.crx-id span{font-size:12px;color:var(--muted)}
+.crx-m{flex:0 0 auto;text-align:center;min-width:96px}
+.crx-n{font-size:32px;font-weight:800;line-height:1;letter-spacing:-1px}
+.crx-k{font-size:10.5px;color:var(--muted);margin-top:3px}
+.crx-bud{min-width:150px}
+.crx-bar{height:7px;background:#e8edf2;border-radius:4px;margin-top:6px;overflow:hidden}
+.crx-bar i{display:block;height:100%;background:var(--ink);border-radius:4px}
+.crx-bar i.hi{background:var(--bad)}
+.crx-g{flex:0 0 auto;font-size:15px;padding:4px 14px}
+.crx-b{padding:4px 18px 14px}
+.crx-c{font-size:12.5px;color:var(--body);background:#f8fafc;padding:11px 13px;margin:10px 0 4px;border-left:3px solid var(--accent);border-radius:0 6px 6px 0;line-height:1.75}
+.crx-c strong{color:var(--ink)}
+/* 错配图 */
+.mm{display:flex;flex-direction:column;gap:9px;margin:10px 0}
+.mm-r{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.mm-n{flex:0 0 150px;font-size:12.5px;font-weight:600}
+.mm-n em{display:block;font-style:normal;font-size:11px;color:var(--muted);font-weight:400}
+.mm-b{flex:1;min-width:210px;display:flex;flex-direction:column;gap:3px}
+.mm-bar{height:18px;border-radius:4px;display:flex;align-items:center;padding-left:8px;min-width:78px}
+.mm-bar span{font-size:11px;font-weight:700;white-space:nowrap}
+.mm-bud{background:#1e3a5f} .mm-bud span{color:#fff} .mm-bud.hi{background:var(--bad)}
+.mm-sc{background:#dbeafe} .mm-sc span{color:#1e3a5f}
+.mm-sc.lo{background:#fecaca} .mm-sc.lo span{color:#7f1d1d}
+.mm-v{flex:0 0 78px;text-align:center;font-size:11.5px;font-weight:700;padding:3px 0;border-radius:5px}
+.mm-v.ok{background:#ecfdf5;color:#059669} .mm-v.no{background:#fef2f2;color:#dc2626}
+.concl{font-size:13px;color:var(--body);margin-top:12px;padding:10px 12px;background:#f8fafc;border-left:3px solid var(--accent);border-radius:0 6px 6px 0}
+/* 补齐原缺失类 */
+.badge-good{background:#ecfdf5;color:#059669} .badge-mid{background:#fffbeb;color:#d97706}
+.quality,.problem{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700}
+.quality{background:#ecfdf5;color:#059669} .problem{background:#fef2f2;color:#dc2626}
+.platform-ig,.platform-fb{color:#fff !important}
+.module{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid var(--border)}
+@media (max-width:640px){.mini{grid-template-columns:1fr}.mini-s{border-right:none;border-bottom:1px solid var(--border)}.mini-r{flex-direction:column;gap:2px}.verdict-score{flex:1 0 100%}}
+footer { text-align: center; padding: 32px 0; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ══ 总览 ══ -->
+<div class="section">
+<h1>🇫🇷 法国 I7/S7 Fold 活动评估报告</h1>
+<p class="subtitle">AVRIL · MAI 2026 &nbsp;|&nbsp; UGC×4 + KOL×1 &nbsp;|&nbsp; 结算金额 €5,000 &nbsp;|&nbsp; 执行方：第三方代理商 &nbsp;|&nbsp; 评定方：Tineco 品牌方 &nbsp;|&nbsp; 报告日期：2026-07-23</p>
+<div class="verdict">
+  <div class="verdict-score">
+    <div class="vk">综合评分</div>
+    <div class="vn">69</div>
+    <div class="vg">C+</div>
+    <div class="vd">满分 100 · 复投线 78</div>
+  </div>
+  <div class="verdict-body">
+    <div class="vh">评定结论：<em>KPI 达标，内容不合格</em></div>
+    <p class="vt">三项核心投放指标全线优于法国基准线，<b>但达标由平台流量效率驱动，而非内容质量驱动</b>。€5,000 中有 <b>€3,761（75.2%）</b>投放于内容分低于 7.0 分、按本方规则应予剔除的素材；达人报价与内容质量<b>呈负相关</b>。本轮定性：<b>投放执行合格 · 内容交付不合格 · 预算配置失败。</b></p>
+    <div class="vbars">
+      <div class="vb"><span class="vb-n">投放执行</span><span class="vb-w">权重 40%</span><div class="vb-t"><div class="vb-f f-ok" style="width:82%"></div></div><span class="vb-v s-ok">82</span><span class="badge badge-ok">合格</span></div>
+      <div class="vb"><span class="vb-n">内容质量</span><span class="vb-w">权重 35%</span><div class="vb-t"><div class="vb-f f-warn" style="width:70%"></div></div><span class="vb-v s-warn">70</span><span class="badge badge-warn">临界</span></div>
+      <div class="vb"><span class="vb-n">预算配置</span><span class="vb-w">权重 25%</span><div class="vb-t"><div class="vb-f f-bad" style="width:45%"></div></div><span class="vb-v s-bad">45</span><span class="badge badge-bad">不合格</span></div>
+    </div>
+    <p class="tiny" style="margin-top:8px">加权：82×40% ＋ 70×35% ＋ 45×25% ＝ 69。评级：A ≥ 88　·　B ≥ 78（复投线）　·　C ≥ 60　·　D &lt; 60。</p>
+  </div>
+</div>
+<div class="alert-box alert-warn">
+  <strong>📌 整体表现</strong><br>
+  本轮是一次<b>「投放兜住了内容」</b>的战役。媒介侧交出了本年度法国市场最好的一组效率数据（CPC 优于标准 37%、CTR 优于 90%），但内容侧只交出了 7.0 分——刚好卡在剔除线上，且预算完全押在了低分素材上。
+  <br><br>
+  三句话概括：<b>① 流量买对了，内容没做对，钱花错了。② KPI 达标不构成本轮验收通过。③ R2 的重点不在投放优化，在选人、定价与验收流程。</b>
+  <br><br>
+  <span class="tiny">量化测算：UGC1 ＋ UGC3 合计 €3,611（占 72.2%），两组实际 CPC 均值 €0.12。若这笔钱按 UGC2 / UGC4 的实际 CPC（€0.093）投放，可多获得约 8,900 次点击（+30%），等值媒体价值约 €830。</span>
+</div>
+
+<div class="card">
+  <h3>📐 标准与达成</h3>
+  <table>
+    <tr><th style="color:#222;">指标</th><th style="color:#222;">标准 / 达标线</th><th style="color:#222;">本轮达成</th><th style="color:#222;">达成对比</th><th style="color:#222;">判定</th></tr>
+    <tr><td colspan="5" class="grp">投放规模与效率<span>（标准依据：法国线下战役 KPI 基准线 v1.2，FR/IT/DE 三国对齐）</span></td></tr>
+    <tr><td><strong>总预算</strong></td><td>€5,000（计划）</td><td class="big">€5,000</td><td>100% 执行</td><td><span class="badge badge-ok">达标</span></td></tr>
+    <tr><td><strong>总曝光</strong></td><td>≥ 753K<br><span class="tiny">按 CPM ≤ €6.64 倒推</span></td><td class="big">898K</td><td class="s-ok">119%</td><td><span class="badge badge-ok">达标</span></td></tr>
+    <tr><td><strong>总点击</strong></td><td>≥ 33.3K<br><span class="tiny">按 CPC ≤ €0.15 倒推</span></td><td class="big">52.8K</td><td class="s-ok">158%</td><td><span class="badge badge-ok">优秀</span></td></tr>
+    <tr><td><strong>平均 CPC</strong></td><td>≤ €0.15</td><td class="big s-ok">€0.09</td><td class="s-ok">优于标准 37%</td><td><span class="badge badge-ok">优秀</span></td></tr>
+    <tr><td><strong>平均 CTR</strong></td><td>≥ 3.1%</td><td class="big s-ok">5.89%</td><td class="s-ok">优于标准 90%</td><td><span class="badge badge-ok">优秀</span></td></tr>
+    <tr><td><strong>平均 CPM</strong></td><td>≤ €6.64</td><td class="big s-ok">€5.57</td><td class="s-ok">优于标准 16%</td><td><span class="badge badge-ok">达标</span></td></tr>
+    <tr><td colspan="5" class="grp">内容与预算配置<span>（标准依据：达人内容评分标准 v1.2）</span></td></tr>
+    <tr><td><strong>内容加权均分</strong></td><td>≥ 7.5（复投线）<br><span class="tiny">剔除线 &lt; 7.0</span></td><td class="big s-warn">7.0</td><td class="s-warn">93%，3/5 条低于剔除线</td><td><span class="badge badge-warn">未达标</span></td></tr>
+    <tr><td><strong>有效 CTA 覆盖率</strong></td><td>100%<br><span class="tiny">行动动词＋渠道标识＋价格</span></td><td class="big s-bad">0%</td><td class="s-bad">5/5 条不合格</td><td><span class="badge badge-bad">严重未达标</span></td></tr>
+    <tr><td><strong>低质素材预算占比</strong></td><td>≤ 25%</td><td class="big s-bad">75.2%</td><td class="s-bad">超标 3.0 倍（€3,761）</td><td><span class="badge badge-bad">严重未达标</span></td></tr>
+  </table>
+</div>
+<div class="card">
+  <h3>🚩 核心问题（宏观）</h3>
+  <table>
+    <tr><th style="color:#222;">级别</th><th style="color:#222;">核心问题</th><th style="color:#222;">宏观判断</th><th style="color:#222;">详见</th></tr>
+    <tr><td><span class="badge badge-bad">严重</span></td><td><strong>钱花反了：75.2% 预算投在不合格素材上</strong></td><td>€3,761 流向内容分 &lt;7.0 的三条素材，9.0 分的 UGC4 只拿到 €768。价格与质量倒挂 2.45 倍——付得越多，拿到的越差。这不是投放能优化的问题，根因在<b>选人与定价</b>。</td><td>模块 3</td></tr>
+    <tr><td><span class="badge badge-bad">严重</span></td><td><strong>链路断在最后一秒：有效 CTA 覆盖率 0%</strong></td><td>5 条素材没有一条把用户送到「去哪买」。3 条有尾帧但只是品牌感谢与情绪表达，2 条连尾帧都没有。这直接导致本轮点击数据好看，却<b>无法评估任何转化</b>。</td><td>模块 2</td></tr>
+    <tr><td><span class="badge badge-bad">严重</span></td><td><strong>达标来自平台，不来自执行</strong></td><td>代理商投前未提交任何 KPI 承诺值，本报告使用的是品牌方事后基准线——<b>本轮不存在可被追责的目标</b>。KPI 全绿掩盖了内容与预算两层的系统性问题。</td><td>模块 1</td></tr>
+    <tr><td><span class="badge badge-warn">重要</span></td><td><strong>素材未做平台适配：FB 全面落后 IG 40–60%</strong></td><td>5 条素材的 FB 版本均为 IG 竖屏直接搬运。同一批内容在两个平台的效率差了近一半，说明<b>投放侧没有针对平台做任何二次加工</b>。</td><td>模块 1</td></tr>
+    <tr><td><span class="badge badge-warn">重要</span></td><td><strong>执行标准不统一：产品首次出镜中位 12 秒</strong></td><td>参考线 ≤3 秒。产品露出占比从 78%（UGC4）到 33%（Louise）两极分化，同一轮 Brief 下五条素材完成度差异极大，说明 <b>Brief 下发与验收环节失效</b>。</td><td>模块 2</td></tr>
+  </table>
+</div>
+
+</div>
+
+<div class="section">
+<h2>📊 模块 1：KPI 判定<span class="h2score badge-ok">82 分 · 合格</span></h2>
+<div class="mini">
+  <div class="mini-s">
+    <div class="mini-k">模块评分</div>
+    <div class="mini-n s-ok">82</div>
+    <div class="badge badge-ok">合格</div>
+    <div class="mini-x">异常 3 / 9<br>广告×平台组合</div>
+  </div>
+  <div class="mini-b">
+    <div class="mini-r"><span class="mini-t">判定标准</span><div>IG：CPC ≤ €0.15 · CTR ≥ 3.1% · CPM ≤ €6.64 · ER ≥ 2.5%　｜　FB：CPC ≤ €0.10 · CTR ≥ 2.0% · CPM ≤ €3.50<br><span class="tiny">依据：法国线下战役 KPI 基准线 v1.2（FR/IT/DE 三国对齐）</span></div></div>
+    <div class="mini-r"><span class="mini-t">核心问题</span><div><ol>
+      <li><b>FB 全面落后 IG 40–60%</b>：5 条素材的 FB 版本均为 IG 竖屏直接搬运，未做平台适配。</li>
+      <li><b>UGC1 与 UGC3 拖累效率</b>：UGC1 IG CPM €6.94 超标、CPC €0.14 临界；UGC3 双平台 CPC 均超标。</li>
+      <li><b>Louise 媒介全绿但 ER 0.63%</b>（基准 1/4）：只看投放报表会得出「无需调整」的错误结论，必须与模块 2 内容分交叉判读。</li>
+    </ol></div></div>
+    <div class="mini-r"><span class="mini-t">模块判读</span><div>本模块是全案唯一合格项，但<b class="s-bad">合格来自平台算法对素材的自然筛选，不代表执行方主动优化</b>。代理商投前未提交任何 KPI 承诺值，本轮不存在可被追责的目标——这本身是流程缺陷。</div></div>
+  </div>
+</div>
+<div class="card">
+  <h3>法国统一 KPI 基准线（FR/IT/DE 三国对齐）</h3>
+  <table>
+    <tr><th style="color:#222;">平台</th><th style="color:#222;">CPC 达标线</th><th style="color:#222;">CTR 达标线</th><th style="color:#222;">CPM 达标线</th><th style="color:#222;">ER 达标线 (IG)</th></tr>
+    <tr><td>IG</td><td>≤ €0.15</td><td>≥ 3.1%</td><td>≤ €6.64</td><td>≥ 2.5%</td></tr>
+    <tr><td>FB</td><td>≤ €0.10</td><td>≥ 2.0%</td><td>≤ €3.50</td><td>—</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>逐条 KPI 判定</h3>
+  <table>
+    <tr><th style="color:#222;">广告</th><th style="color:#222;">平台</th><th style="color:#222;">CPC</th><th style="color:#222;">判定</th><th style="color:#222;">CTR</th><th style="color:#222;">判定</th><th style="color:#222;">CPM</th><th style="color:#222;">判定</th><th style="color:#222;">ER</th><th style="color:#222;">判定</th><th style="color:#222;">综合</th></tr>
+    <tr><td>UGC1</td><td><span class="badge platform-ig">IG</span></td><td>€0.14</td><td><span class="badge badge-warn">临界</span></td><td>5.06%</td><td><span class="badge badge-ok">达标</span></td><td>€6.94</td><td><span class="badge badge-bad">超标</span></td><td>—</td><td>—</td><td><span class="badge badge-warn">部分达标</span></td></tr>
+    <tr><td>UGC1</td><td><span class="badge platform-fb">FB</span></td><td>€0.08</td><td><span class="badge badge-ok">达标</span></td><td>2.87%</td><td><span class="badge badge-ok">达标</span></td><td>€2.42</td><td><span class="badge badge-ok">达标</span></td><td>—</td><td>—</td><td><span class="badge badge-ok">全达标</span></td></tr>
+    <tr><td>UGC2</td><td><span class="badge platform-ig">IG</span></td><td>€0.10</td><td><span class="badge badge-ok">达标</span></td><td>4.21%</td><td><span class="badge badge-ok">达标</span></td><td>€4.20</td><td><span class="badge badge-ok">达标</span></td><td>—</td><td>—</td><td><span class="badge badge-ok">全达标</span></td></tr>
+    <tr><td>UGC2</td><td><span class="badge platform-fb">FB</span></td><td>€0.08</td><td><span class="badge badge-ok">达标</span></td><td>2.87%</td><td><span class="badge badge-ok">达标</span></td><td>€2.18</td><td><span class="badge badge-ok">达标</span></td><td>—</td><td>—</td><td><span class="badge badge-ok">全达标</span></td></tr>
+    <tr><td>UGC3</td><td><span class="badge platform-ig">IG</span></td><td>€0.15</td><td><span class="badge badge-bad">超标</span></td><td>3.96%</td><td><span class="badge badge-ok">达标</span></td><td>€5.77</td><td><span class="badge badge-ok">达标</span></td><td>—</td><td>—</td><td><span class="badge badge-warn">部分达标</span></td></tr>
+    <tr><td>UGC3</td><td><span class="badge platform-fb">FB</span></td><td>€0.11</td><td><span class="badge badge-bad">超标</span></td><td>2.33%</td><td><span class="badge badge-ok">达标</span></td><td>€2.49</td><td><span class="badge badge-ok">达标</span></td><td>—</td><td>—</td><td><span class="badge badge-warn">部分达标</span></td></tr>
+    <tr><td>UGC4</td><td><span class="badge platform-ig">IG</span></td><td>€0.11</td><td><span class="badge badge-ok">达标</span></td><td>5.59%</td><td><span class="badge badge-ok">达标</span></td><td>€6.20</td><td><span class="badge badge-ok">达标</span></td><td>—</td><td>—</td><td><span class="badge badge-ok">全达标</span></td></tr>
+    <tr><td>UGC4</td><td><span class="badge platform-fb">FB</span></td><td>€0.08</td><td><span class="badge badge-ok">达标</span></td><td>3.71%</td><td><span class="badge badge-ok">达标</span></td><td>€2.81</td><td><span class="badge badge-ok">达标</span></td><td>—</td><td>—</td><td><span class="badge badge-ok">全达标</span></td></tr>
+    <tr><td>KOL Louise</td><td><span class="badge platform-ig">IG</span></td><td>€0.08</td><td><span class="badge badge-ok">达标</span></td><td>5.92%</td><td><span class="badge badge-ok">达标</span></td><td>€4.75</td><td><span class="badge badge-ok">达标</span></td><td>0.63%</td><td><span class="badge badge-bad">未达标</span></td><td><span class="badge badge-bad">未达标</span></td></tr>
+  </table>
+</div>
+</div>
+
+<div class="section">
+<h2>📋 模块 2：内容分析<span class="h2score badge-warn">70 分 · 临界</span></h2>
+<div class="mini warn">
+  <div class="mini-s">
+    <div class="mini-k">模块评分</div>
+    <div class="mini-n s-warn">70</div>
+    <div class="badge badge-warn">临界</div>
+    <div class="mini-x">异常 3 / 5<br>低于剔除线</div>
+  </div>
+  <div class="mini-b">
+    <div class="mini-r"><span class="mini-t">判定标准</span><div>内容分满分 10 ＝ Brief 匹配 4.0 ＋ 画面证据 3.0 ＋ 钩子 1.5 ＋ 节奏 1.5<br><b>复投线 ≥ 7.5　·　剔除线 &lt; 7.0</b>（低于此线不予投放）　｜　硬性交付项：字幕覆盖 100% · 有效 CTA 覆盖 100%，缺一不予验收<br><span class="tiny">检查方法：2fps 高频抽帧（每 0.5 秒 1 帧），30 秒素材抽 60 帧，同步比对配音与屏幕文字</span></div></div>
+    <div class="mini-r"><span class="mini-t">核心问题</span><div><ol>
+      <li><b>3/5 条低于 7.0 剔除线</b>（6.5 / 6.5 / 5.0），加权均分 7.0，未达 7.5 复投线。</li>
+      <li><b>有效 CTA 覆盖率 0%</b>：「有尾帧」≠「有有效 CTA」——3 条止步于品牌感谢与情绪表达，2 条没有收口。</li>
+      <li><b>产品出镜过晚、露出两极分化</b>：首次出镜中位 12 秒（参考 ≤3s）；露出占比 UGC4 78% ↔ Louise 33%。</li>
+    </ol></div></div>
+    <div class="mini-r"><span class="mini-t">模块判读</span><div>内容层是本轮的<b class="s-bad">真实短板</b>。规律非常清楚：<b class="s-bad">得分高的素材都在前 6 秒把产品和卖点摆上桌，得分低的都在前 12 秒讲故事</b>——这是可直接写进 R2 Brief 的、最硬的一条执行规则。</div></div>
+  </div>
+</div>
+<div class="card">
+<h3>📋 达人逐条质检表</h3>
+<table>
+<thead style="background: #2c3e50; color: #1a1a2e;"><tr><th style="color:#222;">达人</th><th style="color:#222;">评级</th><th style="color:#222;">Brief匹配(4)</th><th style="color:#222;">画面证据(3)</th><th style="color:#222;">钩子(1.5)</th><th style="color:#222;">节奏(1.5)</th><th style="color:#222;">总分</th><th style="color:#222;">字幕</th><th style="color:#222;">CTA</th><th style="color:#222;">核心问题</th></tr></thead>
+<tbody>
+<tr style="background:#f8fafc;"><td>UGC4</td><td><span class="quality">A+</span></td><td>3.0</td><td>3.0</td><td>1.5</td><td>1.5</td><td><strong>9.0</strong></td><td>✅有</td><td>✅有</td><td>仅结尾吃薯片无关(浪费3s)</td></tr>
+<tr><td>UGC2</td><td><span class="quality">A-</span></td><td>3.0</td><td>2.5</td><td>1.5</td><td>1.0</td><td><strong>8.0</strong></td><td>✅有</td><td>✅有</td><td>21-24秒混剪内容跳跃</td></tr>
+<tr style="background:#f8fafc;"><td>UGC1</td><td><span class="problem">B-</span></td><td>2.5</td><td>2.0</td><td>1.0</td><td>1.0</td><td><strong>6.5</strong></td><td>✅有</td><td>✅有</td><td>产品12s后才出现(前12s纯人物口播)</td></tr>
+<tr><td>UGC3</td><td><span class="problem">B-</span></td><td>2.5</td><td>2.0</td><td>1.0</td><td>1.0</td><td><strong>6.5</strong></td><td>✅有</td><td>❌无</td><td>无CTA尾帧+15-21秒痛点过长</td></tr>
+<tr style="background:#f8fafc;"><td>KOL Louise</td><td><span class="problem">C</span></td><td>1.5</td><td>2.0</td><td>1.0</td><td>0.5</td><td><strong>5.0</strong></td><td>❌无</td><td>❌无</td><td>前12秒纯宠物+无字幕+卖点展示不足</td></tr>
+</tbody>
+</table>
+</div>
+<div class="card">
+<h3>🎬 达人逐条视频深度内容分析</h3>
+<p class="tiny" style="margin-bottom:10px">⚠️ 基于高频抽帧（2fps＝每 0.5 秒 1 帧）逐帧分析，30 秒视频抽 60 帧，覆盖全部关键瞬间。</p>
+<div class="crx ok">
+  <div class="crx-h">
+    <div class="crx-id"><b>UGC4</b><span>S7 Fold Elite · 27秒</span></div>
+    <div class="crx-m"><div class="crx-n s-ok">9.0</div><div class="crx-k">内容分 / 10</div></div>
+    <div class="crx-m crx-bud"><div class="crx-n">€768</div><div class="crx-k">预算 · 占总额 15.4%</div><div class="crx-bar"><i class="" style="width:38.5%"></i></div></div>
+    <div class="crx-g badge badge-ok">A+</div>
+  </div>
+  <div class="crx-b">
+<p class="crx-c"><strong>总结：</strong>展示6个卖点(最多)，产品演示占比78%。折叠+床底+无水痕+防缠绕都有画面验证。结尾3秒吃薯片无关。</p>
+<table>
+<thead><tr><th>时间段</th><th>画面内容</th><th>字幕</th><th>卖点验证</th></tr></thead>
+<tbody>
+<tr><td>0-3s</td><td>卧室木地板，机器滑入床底</td><td>JE PARIE QUE</td><td>床底清洁</td></tr>
+<tr style="background:#f8fafc;"><td>3-6s</td><td>手部推机器进床底，手柄折叠</td><td>TON ASPIRATEUR</td><td>折叠演示</td></tr>
+<tr><td>6-9s</td><td>机器放平推入床底(连续)</td><td>继续</td><td>床底清洁</td></tr>
+<tr style="background:#f8fafc;"><td>9-12s</td><td>低角度机器在床底</td><td>CLAIREMENT PAS ÇA</td><td>床底清洁</td></tr>
+<tr><td>12-15s</td><td>手部握手柄弯曲角度</td><td>SANS SE BAISSER / 180° / 9.6cm</td><td>无需弯腰</td></tr>
+<tr style="background:#f8fafc;"><td>15-18s</td><td>女性弯腰清洁床底</td><td>LE BONHEUR</td><td>人物+产品</td></tr>
+<tr><td>18-21s</td><td>低角度底部特写</td><td>GRÂCE À LA RACLETTE / Zéro trace d'eau</td><td>无水痕</td></tr>
+<tr style="background:#f8fafc;"><td>21-24s</td><td>吸头+毛发特写</td><td>Anti-enchevêtrement</td><td>防缠绕</td></tr>
+<tr><td>24-27s</td><td>女性吃品客薯片</td><td>IL S'ADAPTE</td><td>⚠️ 与产品无关</td></tr>
+</tbody>
+</table>
+  </div>
+</div>
+<div class="crx ok">
+  <div class="crx-h">
+    <div class="crx-id"><b>UGC2</b><span>I7 Fold · 28秒</span></div>
+    <div class="crx-m"><div class="crx-n s-ok">8.0</div><div class="crx-k">内容分 / 10</div></div>
+    <div class="crx-m crx-bud"><div class="crx-n">€471</div><div class="crx-k">预算 · 占总额 9.4%</div><div class="crx-bar"><i class="" style="width:23.5%"></i></div></div>
+    <div class="crx-g badge badge-ok">A-</div>
+  </div>
+  <div class="crx-b">
+<p class="crx-c"><strong>总结：</strong>展示4个卖点，产品露出占比53%。折叠演示贯穿全片。22000Pa等卖点仅配音提及无画面验证。</p>
+<table>
+<thead><tr><th>时间段</th><th>画面内容</th><th>字幕</th><th>卖点验证</th></tr></thead>
+<tbody>
+<tr><td>0-3s</td><td>人物手持i7 Fold，手柄弯折状态</td><td>MAIS / Promo French Days</td><td>折叠(开场即演示)</td></tr>
+<tr style="background:#f8fafc;"><td>3-6s</td><td>继续演示折叠，机器推向床底</td><td>IL Y A VRAIMENT DE</td><td>折叠+床底清洁</td></tr>
+<tr><td>6-9s</td><td>机器放平推入床底清洁</td><td>FAIRE ÇA LÀ ?</td><td>床底清洁</td></tr>
+<tr style="background:#f8fafc;"><td>9-12s</td><td>人物惊讶对镜头，机器放平在床底</td><td>卖点陈述</td><td>人物+产品同框</td></tr>
+<tr><td>12-15s</td><td>特写充电座/收纳</td><td>FRANCHEMENT, C'EST</td><td>收纳展示</td></tr>
+<tr style="background:#f8fafc;"><td>15-21s</td><td>铰链特写+折叠继续+90度演示</td><td>DE LA PLACE / Pliage 90°</td><td>折叠机构</td></tr>
+<tr><td>21-24s</td><td>多场景混剪(扫地机器人进矮柜等)</td><td>混剪</td><td>⚠️ 内容跳跃</td></tr>
+<tr style="background:#f8fafc;"><td>24-27s</td><td>人物坐沙发对镜头</td><td>TOUTE LA PLACE</td><td>人物口播</td></tr>
+<tr><td>27-28s</td><td>尾帧促销文字+品牌Logo</td><td>尾帧CTA</td><td>收口</td></tr>
+</tbody>
+</table>
+  </div>
+</div>
+<div class="crx bad">
+  <div class="crx-h">
+    <div class="crx-id"><b>UGC1</b><span>I7 Fold · 30秒</span></div>
+    <div class="crx-m"><div class="crx-n s-bad">6.5</div><div class="crx-k">内容分 / 10</div></div>
+    <div class="crx-m crx-bud"><div class="crx-n">€1,732</div><div class="crx-k">预算 · 占总额 34.6%</div><div class="crx-bar"><i class="hi" style="width:86.5%"></i></div></div>
+    <div class="crx-g badge badge-bad">B-</div>
+  </div>
+  <div class="crx-b">
+<p class="crx-c"><strong>总结：</strong>展示3个卖点，产品实际出现仅8秒(24-30)，前22秒纯人物口播+旧设备对比。产品演示严重不足。</p>
+<table>
+<thead><tr><th>时间段</th><th>画面内容</th><th>字幕</th><th>卖点验证</th></tr></thead>
+<tbody>
+<tr><td>0-3s</td><td>人物大特写对镜头</td><td>SI T'AS / PAS DE PLACE</td><td>无产品</td></tr>
+<tr style="background:#f8fafc;"><td>3-12s</td><td>人物连续对镜头说话</td><td>逐步引出痛点</td><td>无产品(9秒浪费)</td></tr>
+<tr><td>12-18s</td><td>绿色旧吸尘器(非Tineco)</td><td>DES ASPIRATEURS</td><td>旧设备对比(6秒浪费)</td></tr>
+<tr style="background:#f8fafc;"><td>18-24s</td><td>人物坐米色沙发对镜头</td><td>QUI PRENNENT / TOUTE LA PLACE</td><td>无产品</td></tr>
+<tr><td>24-27s</td><td>i7 Fold在充电座出镜</td><td>French Days</td><td>产品露出(太晚)</td></tr>
+<tr style="background:#f8fafc;"><td>27-30s</td><td>手部折叠手柄演示</td><td>SE PLIE À 180°</td><td>折叠演示</td></tr>
+</tbody>
+</table>
+  </div>
+</div>
+<div class="crx bad">
+  <div class="crx-h">
+    <div class="crx-id"><b>UGC3</b><span>S7 Fold · 23秒</span></div>
+    <div class="crx-m"><div class="crx-n s-bad">6.5</div><div class="crx-k">内容分 / 10</div></div>
+    <div class="crx-m crx-bud"><div class="crx-n">€1,879</div><div class="crx-k">预算 · 占总额 37.6%</div><div class="crx-bar"><i class="hi" style="width:94.0%"></i></div></div>
+    <div class="crx-g badge badge-bad">B-</div>
+  </div>
+  <div class="crx-b">
+<p class="crx-c"><strong>总结：</strong>展示3个卖点，23秒最短。折叠演示仅6秒。无CTA和尾帧，观众看完不知道下一步。</p>
+<table>
+<thead><tr><th>时间段</th><th>画面内容</th><th>字幕</th><th>卖点验证</th></tr></thead>
+<tbody>
+<tr><td>0-3s</td><td>低角度S7 Fold吸头在木地板推进</td><td>OK, ON VA PARLER</td><td>低角度开场</td></tr>
+<tr style="background:#f8fafc;"><td>3-6s</td><td>折叠放平演示</td><td>继续折叠介绍</td><td>折叠</td></tr>
+<tr><td>6-9s</td><td>机器滑入橱柜底</td><td>DE CE COIN CHEZ TOI,</td><td>低矮空间清洁</td></tr>
+<tr style="background:#f8fafc;"><td>9-12s</td><td>吸头特写STREAK FREE</td><td>继续</td><td>无水痕</td></tr>
+<tr><td>12-15s</td><td>转场效果+橙色色块</td><td>转场</td><td>转场</td></tr>
+<tr style="background:#f8fafc;"><td>15-21s</td><td>灰尘堆积场景(地板+家具底)</td><td>CELUI OÙ TU FAIS / SEMBLANT</td><td>痛点展示-灰尘球</td></tr>
+<tr><td>21-23s</td><td>戴眼镜女子惊讶表情</td><td>PARCE QUE</td><td>无产品(浪费2秒)</td></tr>
+</tbody>
+</table>
+  </div>
+</div>
+<div class="crx bad">
+  <div class="crx-h">
+    <div class="crx-id"><b>KOL Louise</b><span>30秒</span></div>
+    <div class="crx-m"><div class="crx-n s-bad">5.0</div><div class="crx-k">内容分 / 10</div></div>
+    <div class="crx-m crx-bud"><div class="crx-n">€150</div><div class="crx-k">预算 · 占总额 3.0%</div><div class="crx-bar"><i class="hi" style="width:7.5%"></i></div></div>
+    <div class="crx-g badge badge-bad">C</div>
+  </div>
+  <div class="crx-b">
+<p class="crx-c"><strong>总结：</strong>展示3个卖点，前12秒(40%)纯宠物内容。产品演示仅约10秒，产品露出占比33%最差。无字幕无CTA。</p>
+<table>
+<thead><tr><th>时间段</th><th>画面内容</th><th>字幕</th><th>卖点验证</th></tr></thead>
+<tbody>
+<tr><td>0-3s</td><td>女性抱法斗幼犬</td><td>无文字</td><td>宠物吸引(无产品)</td></tr>
+<tr style="background:#f8fafc;"><td>3-6s</td><td>继续抱法斗</td><td>无文字</td><td>宠物(无产品)</td></tr>
+<tr><td>6-9s</td><td>法斗趴着打盹</td><td>无文字</td><td>宠物(无产品)</td></tr>
+<tr style="background:#f8fafc;"><td>9-12s</td><td>法斗低头嗅地上碎屑</td><td>无文字</td><td>宠物(无产品)</td></tr>
+<tr><td>12-15s</td><td>Tineco洗地机直立停放</td><td>无文字</td><td>产品出镜(太晚)</td></tr>
+<tr style="background:#f8fafc;"><td>15-18s</td><td>水槽边清洗水箱</td><td>无文字</td><td>水箱维护</td></tr>
+<tr><td>18-21s</td><td>拆卸滚刷</td><td>无文字</td><td>滚刷维护</td></tr>
+<tr style="background:#f8fafc;"><td>21-24s</td><td>女性持机器对镜头</td><td>无文字</td><td>人物+产品</td></tr>
+<tr><td>24-27s</td><td>女性演示折叠</td><td>无文字</td><td>折叠</td></tr>
+<tr style="background:#f8fafc;"><td>27-30s</td><td>无收尾</td><td>无文字</td><td>无收尾</td></tr>
+</tbody>
+</table>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>📈 模块 3：投放效率诊断<span class="h2score badge-bad">45 分 · 不合格</span></h2>
+<div class="mini bad">
+  <div class="mini-s">
+    <div class="mini-k">模块评分</div>
+    <div class="mini-n s-bad">45</div>
+    <div class="badge badge-bad">不合格</div>
+    <div class="mini-x">异常 3 / 3<br>全项未达标</div>
+  </div>
+  <div class="mini-b">
+    <div class="mini-r"><span class="mini-t">判定标准</span><div>① ≥8.0 分素材承接预算 ≥ 70%　② &lt;7.0 分素材投放占比 ＝ 0%　③ 单价与内容分正相关（价格—质量倒挂系数 ≤ 1.00）</div></div>
+    <div class="mini-r"><span class="mini-t">核心问题</span><div><ol>
+      <li><b>75.2% 预算流向 &lt;7.0 分素材</b>（€3,761），8.0 分以上的两条只拿到 24.8%（€1,239）。</li>
+      <li><b>价格与质量倒挂 2.45 倍</b>：€1,879 → 6.5 分，€768 → 9.0 分，€471 → 8.0 分。</li>
+      <li><b>「性价比＝内容分÷花费」公式失效</b>：只奖励便宜，把 5.0 分的 Louise 排到第一，与剔除规则自相矛盾。</li>
+    </ol></div></div>
+    <div class="mini-r"><span class="mini-t">模块判读</span><div>这是本轮<b class="s-bad">最严重、也最不属于投放范畴的问题</b>。KPI 全绿掩盖了一个事实：钱基本上花反了。<b class="s-bad">根因在选人与定价环节</b>，须由代理商书面说明达人报价依据与选人逻辑。</div></div>
+  </div>
+</div>
+<div class="card">
+  <h3>💸 预算流向 vs 内容质量</h3>
+  <p class="tiny" style="margin-bottom:10px">深色＝该条素材拿走的预算占比；浅色＝该条素材的内容分。两条背离越大，钱花得越错。</p>
+  <div class="mm">
+    <div class="mm-r"><span class="mm-n">UGC4 · S7 Fold<em>9.0 分</em></span><div class="mm-b"><div class="mm-bar mm-bud" style="width:38.5%"><span>€768 · 15.4%</span></div><div class="mm-bar mm-sc" style="width:90%"><span>内容分 9.0</span></div></div><span class="mm-v ok">钱给少了</span></div>
+    <div class="mm-r"><span class="mm-n">UGC2 · I7 Fold<em>8.0 分</em></span><div class="mm-b"><div class="mm-bar mm-bud" style="width:23.5%"><span>€471 · 9.4%</span></div><div class="mm-bar mm-sc" style="width:80%"><span>内容分 8.0</span></div></div><span class="mm-v ok">钱给少了</span></div>
+    <div class="mm-r"><span class="mm-n">UGC1 · I7 Fold<em>6.5 分</em></span><div class="mm-b"><div class="mm-bar mm-bud hi" style="width:86.5%"><span>€1,732 · 34.6%</span></div><div class="mm-bar mm-sc lo" style="width:65%"><span>内容分 6.5</span></div></div><span class="mm-v no">钱给多了</span></div>
+    <div class="mm-r"><span class="mm-n">UGC3 · S7 Fold<em>6.5 分</em></span><div class="mm-b"><div class="mm-bar mm-bud hi" style="width:94%"><span>€1,879 · 37.6%</span></div><div class="mm-bar mm-sc lo" style="width:65%"><span>内容分 6.5</span></div></div><span class="mm-v no">钱给多了</span></div>
+    <div class="mm-r"><span class="mm-n">KOL Louise<em>5.0 分</em></span><div class="mm-b"><div class="mm-bar mm-bud" style="width:7.5%"><span>€150</span></div><div class="mm-bar mm-sc lo" style="width:50%"><span>内容分 5.0</span></div></div><span class="mm-v no">不应上线</span></div>
+  </div>
+  <p class="concl">质量最高的两条素材只拿到 <b>24.8%</b> 的预算，质量最低的三条拿走 <b>75.2%</b>。单价与质量的关系是反的（€1,879→6.5 分，€768→9.0 分）——<b>这不是投放问题，是选人与定价问题。</b></p>
+</div>
+<div class="card">
+<h3>💰 性价比横评判定规则</h3>
+<table>
+  <tr><th style="color:#222;">性价比指数</th><th style="color:#222;">内容分门槛</th><th style="color:#222;">判定</th><th style="color:#222;">操作</th></tr>
+  <tr><td>≥ 0.020</td><td>≥ 7.0分</td><td><span class="badge badge-ok">高性价比</span></td><td>续约，可上浮10%定价</td></tr>
+  <tr><td>≥ 0.005 &lt; 0.020</td><td>≥ 7.0分</td><td><span class="badge badge-good">中等性价比</span></td><td>继续合作，控价</td></tr>
+  <tr><td>≥ 0.003 &lt; 0.005</td><td>≥ 7.0分</td><td><span class="badge badge-mid">偏低性价比</span></td><td>需要控价+修改</td></tr>
+  <tr><td>任意</td><td>< 7.0分</td><td><span class="badge badge-bad">低质</span></td><td>直接剔除，性价比指数无效</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>📊 达人内容效率横评（性价比 = 内容分 ÷ 总花费€）</h3>
+<table>
+<thead style="background: #2c3e50; color: #1a1a2e;"><tr><th style="color:#222;">达人</th><th style="color:#222;">时长</th><th style="color:#222;">内容分</th><th style="color:#222;">总花费€</th><th style="color:#222;">性价比</th><th style="color:#222;">评级</th><th style="color:#222;">建议</th></tr></thead>
+<tbody>
+<tr><td><strong>KOL Louise</strong></td><td>30s</td><td style="color:#e94560;">5.0</td><td>€150</td><td style="color:#4ecca3;font-weight:bold;">0.0333</td><td><span class="problem">C</span></td><td>低分低价(需修改)</td></tr>
+<tr style="background:#f8fafc;"><td><strong>UGC2 (I7 Fold)</strong></td><td>28s</td><td>8.0</td><td>€471</td><td style="color:#4ecca3;font-weight:bold;">0.0170</td><td><span class="quality">A-</span></td><td>放量(性价比最高)</td></tr>
+<tr><td><strong>UGC4 (S7 Fold)</strong></td><td>27s</td><td>9.0</td><td>€768</td><td style="color:#4ecca3;font-weight:bold;">0.0117</td><td><span class="quality">A+</span></td><td>放量</td></tr>
+<tr style="background:#f8fafc;"><td><strong>UGC1 (I7 Fold)</strong></td><td>30s</td><td>6.5</td><td>€1,732</td><td style="color:#e94560;">0.0038</td><td><span class="problem">B-</span></td><td>控价+修改</td></tr>
+<tr><td><strong>UGC3 (S7 Fold)</strong></td><td>23s</td><td>6.5</td><td>€1,879</td><td style="color:#e94560;">0.0035</td><td><span class="problem">B-</span></td><td>控价+修改</td></tr>
+</tbody>
+</table>
+<p style="color:#aaa;font-size:13px;margin-top:8px;">💡 性价比排名：KOL Louise(0.0333) > UGC2(0.0170) > UGC4(0.0117) > UGC1(0.0038) > UGC3(0.0035)</p>
+<p style="color:#4ecca3;font-size:13px;">⭐ KOL Louise 性价比最高但因内容质量过低(5.0分)，需修改后重投</p>
+</div>
+
+<div class="card">
+<h3>📈 曝光趋势（5月3日-5月23日）</h3>
+<div style="background:#0a0a2a;padding:15px;border-radius:8px;height:200px;display:flex;align-items:center;justify-content:center;">
+  <div style="color:#4ecca3;font-size:14px;text-align:center;">
+    <div style="font-size:20px;font-weight:bold;margin-bottom:10px;">⚠️ 趋势图表需Excel数据源补充</div>
+    <div>当前仅汇总静态数据，日趋势图待投放数据接入</div>
+  </div>
+</div>
+</div>
+
+<div class="card">
+<h3>🔧 诊断总结</h3>
+<table>
+  <tr><th style="color:#222;">广告</th><th style="color:#222;">效率指数</th><th style="color:#222;">性价比指数</th><th style="color:#222;">判定</th></tr>
+  <tr style="background:#f8fafc;"><td><strong>UGC4</strong></td><td>1.54</td><td style="color:#4ecca3;font-weight:bold;">0.0117</td><td><span class="badge badge-good">中高</span></td></tr>
+  <tr><td><strong>UGC1</strong></td><td>1.00</td><td style="color:#e94560;">0.0038</td><td><span class="badge badge-bad">偏低</span></td></tr>
+  <tr style="background:#f8fafc;"><td><strong>UGC2</strong></td><td>3.31</td><td style="color:#4ecca3;font-weight:bold;">0.0170</td><td><span class="badge badge-good">高</span></td></tr>
+  <tr><td><strong>UGC3</strong></td><td>0.98</td><td style="color:#e94560;">0.0035</td><td><span class="badge badge-bad">偏低</span></td></tr>
+  <tr style="background:#f8fafc;"><td><strong>KOL Louise</strong></td><td>5.19</td><td style="color:#e94560;font-weight:bold;">0.0333</td><td><span class="badge badge-bad">低质</span></td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>🛠️ 投放优化建议</h3>
+<table>
+  <tr><th style="color:#222;">达人</th><th style="color:#222;">优化方向</th></tr>
+  <tr style="background:#f8fafc;"><td>UGC1</td><td>提升CTR至>3%、优化CPE至<0.10€</td></tr>
+  <tr><td>UGC2</td><td>无需调整</td></tr>
+  <tr style="background:#f8fafc;"><td>UGC3</td><td>降低CPC至<0.10€、提升CTR至>3%</td></tr>
+  <tr><td>UGC4</td><td>降低CPC至<0.10€</td></tr>
+  <tr style="background:#f8fafc;"><td>KOL Louise</td><td>无需调整</td></tr>
+</table>
+</div>
+</div>
+
+<div class="section">
+<h2>🎯 模块 4：下一轮行动指导</h2>
+<div class="mini act">
+  <div class="mini-s">
+    <div class="mini-k">下一轮</div>
+    <div class="mini-n s-bad">P0×3</div>
+    <div class="badge badge-warn">P1×3 / P2×2</div>
+    <div class="mini-x">R2 上线前<br>必须闭环</div>
+  </div>
+  <div class="mini-b">
+    <div class="mini-r"><span class="mini-t">行动原则</span><div><b>≥8.0 分素材承接 70% 以上预算；&lt;7.0 分素材一律不予投放。</b>单条素材报价须与上一轮内容分挂钩，且需事前经品牌方核价。</div></div>
+    <div class="mini-r"><span class="mini-t">优先级</span><div>P0 ＝ R2 上线前必须解决，未闭环不予排期　｜　P1 ＝ R2 中期整改　｜　P2 ＝ R3 储备方向</div></div>
+    <div class="mini-r"><span class="mini-t">复投裁决</span><div><span class="badge badge-ok">加量</span> UGC4（9.0）→ €2,000　<span class="badge badge-ok">加量</span> UGC2（8.0）→ €1,500　<span class="badge badge-bad">不复投</span> UGC1 / UGC3　<span class="badge badge-bad">终止</span> KOL Louise</div></div>
+  </div>
+</div>
+<!-- P0 Actions -->
+<div class="action-item action-p0">
+<h3>🔴 P0 紧急（R2 上线前必须解决）</h3>
+<table>
+  <tr><th style="color:#222;">序号</th><th style="color:#222;">问题点</th><th style="color:#222;">改进措施</th><th style="color:#222;">改进目标</th><th style="color:#222;">责任人</th></tr>
+  <tr><td>1</td><td>CTA 系统性缺失（5/5）</td><td>①所有视频尾帧叠加"French Days 限时 + Darty/Boulanger 标识 + 点击购买"文字 ②新增 3 秒 CTA 专属镜头（产品+促销+购买路径）</td><td>100% 视频含有效 CTA</td><td>内容团队</td></tr>
+  <tr><td>2</td><td>KOL Louise 效率异常</td><td>①下一轮禁止使用纯宠物/时尚类 KOL ②强制要求 KOL 筛选条件：产品演示 ≥ 10s + 折叠演示 + 明确 CTA ③现有 Louise 素材降权，不再扩量</td><td>KOL ER ≥ 2.5% + 产品演示 ≥ 10s</td><td>达人团队</td></tr>
+  <tr><td>3</td><td>FB 素材未针对平台优化</td><td>①FB 独立制作横屏/正方形版本（非 IG 竖屏直接搬运）②FB 开屏 3 秒必须含强钩子（挑战式 + 画面证据）</td><td>FB CTR ≥ IG CTR × 0.8</td><td>投放团队</td></tr>
+</table>
+</div>
+
+<!-- P1 Actions -->
+<div class="action-item action-p1">
+<h3>🟡 P1 重要（R2 中期优化）</h3>
+<table>
+  <tr><th style="color:#222;">序号</th><th style="color:#222;">问题点</th><th style="color:#222;">改进措施</th><th style="color:#222;">改进目标</th><th style="color:#222;">责任人</th></tr>
+  <tr><td>1</td><td>Brief 匹配度偏低（平均 2.7/4）</td><td>①锁定"3+2"卖点结构：3强制（折叠/轻量/自清洁）+2可选（续航/吸力/iLoop）②Brief 明确每条视频必须包含的镜头清单</td><td>Brief 匹配度 ≥ 3.5/4</td><td>内容团队</td></tr>
+  <tr><td>2</td><td>折叠演示不完整</td><td>①强制要求"折叠→放入场景→取出"完整循环 ②至少 3 个不同场景（床底/沙发/收纳柜）</td><td>100% 视频含完整折叠演示</td><td>内容团队</td></tr>
+  <tr><td>3</td><td>钩子类型混乱</td><td>①统一"挑战式+画面证据"钩子（UGC4 模式）②禁用纯情境式开头（"Si t'as"）和宠物式开头</td><td>前3秒停留率 ≥ 85%</td><td>内容团队</td></tr>
+</table>
+</div>
+
+<!-- P2 Actions -->
+<div class="action-item action-p2">
+<h3>🟢 P2 储备（R3 优化方向）</h3>
+<table>
+  <tr><th style="color:#222;">序号</th><th style="color:#222;">问题点</th><th style="color:#222;">改进措施</th><th style="color:#222;">改进目标</th><th style="color:#222;">责任人</th></tr>
+  <tr><td>1</td><td>UGC 达人类型单一</td><td>①引入"专业清洁博主"类型（非生活方式类）②测试"家庭主妇"真实用户视角</td><td>达人类型 ≥ 3 种</td><td>达人团队</td></tr>
+  <tr><td>2</td><td>卖点覆盖不均</td><td>①建立"卖点库"：12个核心卖点分级（P0/P1/P2）②不同视频侧重不同卖点组合，避免重复</td><td>12个卖点 100% 覆盖</td><td>内容团队</td></tr>
+</table>
+</div>
+</div>
+
+<footer>
+  <p>📊 法国 I7/S7 Fold 活动评估报告 V5 | 数据来源：AVRIL MAY FOLD Sheet + 5条视频配音 + 视觉分析</p>
+  <p style="margin-top: 8px;">生成时间：2026-07-23 | 架构：总览（评分→标准→核心问题→整体表现）→ KPI 判定 → 内容分析 → 投放效率诊断 → 下一轮行动指导</p>
+</footer>
+
+</div>
+</body>
+</html>
